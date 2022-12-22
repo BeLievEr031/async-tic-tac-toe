@@ -28,9 +28,13 @@ const gameSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "UserModel",
   },
+  winner: {
+    type: String,
+    default: "pending",
+  },
   createdAt: {
     type: Date,
-    default: Date.now(),
+    default: new Date().getTime(),
   },
 });
 

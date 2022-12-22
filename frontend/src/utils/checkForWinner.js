@@ -1,4 +1,6 @@
 const checkForWinner = (squares) => {
+  let winner;
+
   let combos = {
     across: [
       [0, 1, 2],
@@ -28,11 +30,12 @@ const checkForWinner = (squares) => {
         squares[pattern[0]] === squares[pattern[1]] &&
         squares[pattern[1]] === squares[pattern[2]]
       ) {
-        // alert("someone wins");
-        console.log(31);
+        winner = squares[pattern[0]] === "x" ? "x" : "o";
       }
     });
   }
+
+  return winner;
 };
 
 export default checkForWinner;

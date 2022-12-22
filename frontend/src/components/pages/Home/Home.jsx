@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { DataProvider } from "../../../context/DataProviderContext";
 import axios from "axios";
 import HistoryCard from "../HistoryCard/HistoryCard";
@@ -12,7 +12,7 @@ function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log(31);
+      // console.log(31);
       try {
         let res = await axios({
           method: "get",
@@ -23,7 +23,7 @@ function Home() {
         });
 
         res = res.data;
-        console.log(res.games.totalGames);
+        // console.log(res.games.totalGames);
         setAllGames([...res.games.totalGames]);
       } catch (error) {
         return console.log(error.message);

@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Style from "./Entry.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function Entry() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (
+      window.localStorage.getItem("user") &&
+      window.localStorage.getItem("token")
+    ) {
+      return navigate("/home");
+    }
+  }, []);
   return (
     <div className={`container`}>
       <div className={Style.async}>async</div>

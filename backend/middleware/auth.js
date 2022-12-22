@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import UserModel from "../models/UserModel.js";
 
+// function to  checking for validate user
 const auth = async (req, res, next) => {
   try {
     const { token } = req.headers;

@@ -8,10 +8,11 @@ import {
 } from "../controllers/gameController.js";
 
 const gameRouter = express.Router();
-gameRouter.route("/new").post(auth, addNewGame);
-gameRouter.route("/games").get(auth, allGames);
-gameRouter.route("/game/:gameID").get(auth, getGame);
-gameRouter.route("/reset/:gameID").post(auth, resetGame);
-gameRouter.route("/makemove/:gameID").post(auth, makeMove);
+
+gameRouter.route("/new").post(auth, addNewGame); //adding new game
+gameRouter.route("/games").get(auth, allGames); //fetching all game
+gameRouter.route("/game/:gameID").get(auth, getGame); //fetching single game
+gameRouter.route("/reset/:gameID").post(auth, resetGame);//reset game
+gameRouter.route("/makemove/:gameID").post(auth, makeMove);//make move
 
 export default gameRouter;

@@ -2,26 +2,31 @@ import axios from "axios";
 import React from "react";
 import { useContext } from "react";
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Style from "./NewGame.module.css";
 import { DataProvider } from "../../../context/DataProviderContext";
 function NewGame() {
   const navigate = useNavigate();
-  const location = useLocation();
-
+  const [toast, setToast] = useState(false);
+  const [toastStatusMsg, setToastStatusMsg] = useState({
+    status: "",
+    msg: "",
+  });
   // console.log(location);
-  const { gameBaseUrl, token } = useContext(DataProvider);
+  const { gameBaseUrl } = useContext(DataProvider);
   const [opponentEmail, setOpponentEmail] = useState({
     email: "",
   });
+  
   const handleCreateNewGame = async (e) => {
     try {
       e.preventDefault();
 
       if (opponentEmail.email === "") {
-        return console.log("all fields required");
+        return handleToast("failed", "All fields required...");
       }
 
-      console.log(opponentEmail.email);
+      // console.log(opponentEmail.email);
       // console.log(token);
       let res = await axios({
         method: "post",
@@ -35,11 +40,27 @@ function NewGame() {
       });
 
       res = res.data;
-      console.log(res);
+
+      if (!res.success) {
+        return handleToast("failed", res.msg);
+      }
+
       navigate(`/game/${res.game._id}`);
     } catch (error) {
       return console.log(error.message);
     }
+  };
+
+  const handleToast = (toatStatus, toastMsg) => {
+    setTimeout(() => {
+      setToast(false);
+      toatStatus === "success" ? navigate("/login") : "";
+    }, 1000);
+    setToast(true);
+    setToastStatusMsg({
+      status: toatStatus,
+      msg: toastMsg,
+    });
   };
   return (
     <div className="container">
@@ -96,6 +117,23 @@ function NewGame() {
           start game
         </button>
       </form>
+
+      {toast ? (
+        <div
+          className={`action_btn ${Style.toast}`}
+          style={
+            toastStatusMsg.status === "success"
+              ? {
+                  backgroundColor: "#6fcf97",
+                }
+              : { backgroundColor: "#EB5757" }
+          }
+        >
+          {toastStatusMsg.msg}
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

@@ -1,11 +1,11 @@
 import React from "react";
 import Style from "./Register.module.css";
-import { Link, Navigate } from "react-router-dom";
 import { useState } from "react";
 import { useContext } from "react";
 import { DataProvider } from "../../../context/DataProviderContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useEffect } from "react";
 
 function Register() {
   const navigate = useNavigate();
@@ -22,10 +22,15 @@ function Register() {
   });
 
   const { userBaseUrl } = useContext(DataProvider);
-  const handleUserRegister = () => {
-    // console.log(register);
-  };
 
+  useEffect(() => {
+    if (
+      window.localStorage.getItem("user") &&
+      window.localStorage.getItem("token")
+    ) {
+      return navigate("/home");
+    }
+  }, []);
   const handleSetUserData = (e) => {
     setUserData({
       ...userData,
@@ -69,7 +74,7 @@ function Register() {
   const handleToast = (toatStatus, toastMsg) => {
     setTimeout(() => {
       setToast(false);
-      toatStatus ? navigate("/login") : "";
+      toatStatus === "success" ? navigate("/login") : "";
     }, 1000);
     setToast(true);
     setToastStatusMsg({
@@ -80,9 +85,7 @@ function Register() {
 
   return (
     <div className={`container`}>
-      <div className="arrow"
-      onClick={()=>navigate("/")}
-      >
+      <div className="arrow" onClick={() => navigate("/")}>
         <span className="material-symbols-outlined">arrow_back_ios</span>
       </div>
       <form onSubmit={(e) => handleSignUpUserTODB(e)}>
@@ -188,12 +191,7 @@ function Register() {
           </div>
         </div>
 
-        <button
-          className={`action_btn ${Style.register}`}
-          onClick={handleUserRegister}
-        >
-          register
-        </button>
+        <button className={`action_btn ${Style.register}`}>register</button>
       </form>
       {toast ? (
         <div

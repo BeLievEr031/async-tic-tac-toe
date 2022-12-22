@@ -4,9 +4,16 @@ import UserModel from "../models/UserModel.js";
 const addNewGame = async (req, res) => {
   try {
     const user = req.user;
-    console.log(user._id);
+    // console.log(user._id);
+
     const { email } = req.body;
-    console.log(email);
+
+    if (user.email === email) {
+      return res.json({
+        success: false,
+        msg: "you can't play with self.",
+      });
+    }
     if (!email) {
       return res.json({
         success: false,
@@ -34,6 +41,7 @@ const addNewGame = async (req, res) => {
       },
       allMoveTillNow: Array(9).fill(null),
       mover: user._id,
+      createdAt: new Date().getTime(),
     });
 
     await newGame.save();
@@ -118,10 +126,16 @@ const resetGame = async (req, res) => {
       });
     }
 
-    game.allMoveTillNow = [];
+    game.allMoveTillNow = Array(9).fill(null);
     game.nextMove = "X";
-    game.mover = user._id;
+    game.mover = game.owner.id;
+    game.winner = "pending";
     await game.save();
+
+    res.json({
+      success: true,
+      game,
+    });
   } catch (error) {
     return res.json({
       success: false,
@@ -134,7 +148,7 @@ const makeMove = async (req, res) => {
   try {
     const { gameID } = req.params;
 
-    const { move, idx } = req.body;
+    const { move, idx, result } = req.body;
 
     if (!move) {
       return res.json({
@@ -162,6 +176,15 @@ const makeMove = async (req, res) => {
     game.allMoveTillNow[idx] = move;
     game.nextMove = move;
     game.mover = move == "x" ? game.opponent.id : game.owner.id;
+
+    if (result == "draw") {
+      game.winner = "draw";
+    } else if (result == "x") {
+      game.winner = game.owner.id;
+    } else if (result == "o") {
+      game.winner = game.opponent.id;
+    }
+
     await game.save();
 
     res.json({ success: true, game });

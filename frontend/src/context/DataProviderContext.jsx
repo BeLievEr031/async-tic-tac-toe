@@ -11,6 +11,7 @@ function DataProviderContext({ children }) {
   const [currGameDetail, setCurrGameDetail] = useState(null); // for containing the current active game
   const [moveArr, setMoveArr] = useState(Array(9).fill(null));
   const [move, setMove] = useState("x");
+  const [prevIdx, setPrevIdx] = useState(-1);
   const userBaseUrl = "http://localhost:5000/api/v1/user";
   const gameBaseUrl = "http://localhost:5000/api/v1/game";
 
@@ -43,6 +44,8 @@ function DataProviderContext({ children }) {
         setMoveArr,
         move,
         setMove,
+        prevIdx,
+        setPrevIdx,
       }}
     >
       {children}

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useContext } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { DataProvider } from "../../../context/DataProviderContext";
 import Style from "./Login.module.css";
@@ -17,6 +17,15 @@ function Login({ setAuthType }) {
     status: "success",
     msg: "Congratulations!!! Account Created.",
   });
+
+  useEffect(() => {
+    if (
+      window.localStorage.getItem("user") &&
+      window.localStorage.getItem("token")
+    ) {
+      return navigate("/home");
+    }
+  }, []);
 
   const handleSetUserData = (e) => {
     setUserData({
@@ -39,7 +48,7 @@ function Login({ setAuthType }) {
       });
 
       res = res.data;
-      console.log(res);
+      // console.log(res);
       if (!res.success) {
         return handleToast("failed", res.msg);
       }
@@ -59,7 +68,7 @@ function Login({ setAuthType }) {
   const handleToast = (toatStatus, toastMsg) => {
     setTimeout(() => {
       setToast(false);
-      toatStatus ? navigate("/home") : "";
+      toatStatus === "success" ? navigate("/home") : "";
     }, 1000);
     setToast(true);
     setToastStatusMsg({
