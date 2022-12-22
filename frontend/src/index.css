@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Bilbo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bilbo&family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.action_btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 56px;
+  width: 328px;
+  margin: 0 auto;
+  box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.16);
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-family: "Epilogue";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: center;
+  text-transform: capitalize;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.container {
+  height: 100vh;
+  /* max-width: 380px; */
+  overflow: hidden;
+  margin: 0 auto;
+  border: 1px solid black;
+  position: relative;
+
+  border-radius: 20px;
+  background-color: #f5f5f5;
+}
+
+.arrow {
+  position: absolute;
+  top: 10px;
+  font-size: 20px;
+  font-weight: bolder;
+  cursor: pointer;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+}
+.title_span {
+  position: absolute;
+  width: 114px;
+  height: 14px;
+  left: 24px;
+  top: 75px;
+  font-family: "Epilogue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  color: #333333;
+}
+
+.title_heading {
+  position: absolute;
+  width: 255px;
+  height: 64px;
+  left: 24px;
+  top: 98px;
+  font-family: "Epilogue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -0.05em;
+  color: #333333;
+}
+input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px 16px 16px;
+  gap: 4px;
+  position: absolute;
+  height: 56px;
+  background: #f4f4f4;
+  border-radius: 8px;
+  left: 24px;
+  font-family: "Epilogue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  outline: none;
+  border: 1px solid black;
+  width: 345px;
+}
+
+.user_data_title {
+  position: absolute;
+  width: 76px;
+  height: 14px;
+  left: 24px;
+  font-family: "Epilogue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+}

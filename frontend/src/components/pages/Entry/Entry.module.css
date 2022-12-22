@@ -1,0 +1,44 @@
+.login {
+  background-color: #2f80ed;
+  bottom: 10px;
+}
+
+.register {
+  bottom: 76px;
+  background-color: #f2c94c;
+}
+
+.game_name {
+  position: absolute;
+  width: 156px;
+  height: 240px;
+  left: 105px;
+  top: 231px;
+  
+  font-family: 'Bilbo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 96px;
+  line-height: 120px;
+  text-align: center;
+  
+  color: #000000;
+}
+
+.async {
+  position: absolute;
+  width: 53px;
+  height: 45px;
+  left: 156px;
+  top: 174px;
+  
+  font-family: 'Bilbo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 45px;
+  /* identical to box height */
+  
+  
+  color: #000000;
+}

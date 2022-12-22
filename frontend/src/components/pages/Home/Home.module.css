@@ -1,0 +1,68 @@
+.top_heading {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  z-index: 999;
+  font-family: "Epilogue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -0.05em;
+  display: block;
+  color: #333333;
+}
+
+.start_game_btn {
+  background-color: #f2c94c;
+  box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.16);
+  border-radius: 8px;
+  top: 50%;
+}
+
+p {
+  position: absolute;
+  width: 205px;
+  height: 160px;
+  left: 81px;
+  top: 231px;
+  font-family: "Bilbo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 80px;
+  text-align: center;
+  color: #000000;
+}
+
+.start_new_game_btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 12px 8px 8px;
+  gap: 4px;
+  position: fixed;
+  width: 124px;
+  height: 40px;
+  right: 24px;
+  bottom: 24px;
+  background: #270f36;
+  box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.16);
+  border-radius: 8px;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: capitalize;
+  word-spacing: 5px;
+}
+
+.game_history_container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  top: 75px;
+  padding: 15px 0;
+}

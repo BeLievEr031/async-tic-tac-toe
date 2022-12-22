@@ -1,0 +1,12 @@
+.box {
+  position: relative;
+  width: calc(350px / 3);
+  height: calc(350px / 3);
+  border: 3px solid #ffe79e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+}

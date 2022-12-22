@@ -1,0 +1,56 @@
+.arrow {
+  font-size: 20px;
+  font-weight: bolder;
+  cursor: pointer;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.register {
+  bottom: 10px;
+  background-color: #f2c94c;
+}
+
+.details_container span {
+  position: absolute;
+  width: 114px;
+  height: 14px;
+  left: 24px;
+  top: 75px;
+  font-family: "Epilogue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  color: #333333;
+}
+
+.details_container h1 {
+  position: absolute;
+  width: 255px;
+  height: 64px;
+  left: 24px;
+  top: 98px;
+  font-family: "Epilogue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+  /* or 114% */
+
+  letter-spacing: -0.05em;
+
+  /* Dark Grey */
+
+  color: #333333;
+}
+
+.toast {
+  display: flex;
+  transition: all 1s;
+  justify-content: center;
+  align-items: center;
+  bottom: 76px;
+ 
+}
