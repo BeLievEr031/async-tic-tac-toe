@@ -1,7 +1,13 @@
 #FOR RUNNING
-BACKEND => npm run dev
-FRONTEND => npm run dev
+BACKEND =>
+    first move to the backend folder
+    npm install
+    npm run dev
 
+FRONTEND => 
+    first move to the frontend folder
+    npm install
+    npm run dev
 
 
 
