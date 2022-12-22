@@ -71,6 +71,7 @@ const allGames = async (req, res) => {
       success: true,
       games,
     });
+    
   } catch (error) {}
 };
 

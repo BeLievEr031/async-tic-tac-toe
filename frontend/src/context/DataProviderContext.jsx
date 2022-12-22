@@ -12,8 +12,8 @@ function DataProviderContext({ children }) {
   const [moveArr, setMoveArr] = useState(Array(9).fill(null));
   const [move, setMove] = useState("x");
   const [prevIdx, setPrevIdx] = useState(-1);
-  const userBaseUrl = "http://localhost:5000/api/v1/user";
-  const gameBaseUrl = "http://localhost:5000/api/v1/game";
+  const userBaseUrl = "http://localhost:5500/api/v1/user";
+  const gameBaseUrl = "http://localhost:5500/api/v1/game";
 
   useEffect(() => {
     if (

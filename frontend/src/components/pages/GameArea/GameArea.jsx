@@ -27,7 +27,7 @@ function GameArea() {
   } = useContext(DataProvider);
   const user = JSON.parse(window.localStorage.getItem("user"));
   useEffect(() => {
-    console.log("31");
+    // console.log("31");
 
     const fetchData = async () => {
       try {
@@ -165,7 +165,13 @@ function GameArea() {
             </div>
           </div>
 
-          <div className={Style.move_info_box}>Your move</div>
+          <div className={Style.move_info_box}>
+            {currGameDetail
+              ? currGameDetail.mover === user._id
+                ? "Your move"
+                : "Their Move"
+              : ""}
+          </div>
 
           <div className={Style.game_board_container}>
             <div className={`${Style.row}`}>
